@@ -1,26 +1,44 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-heading: 'Iowan Old Style', 'Bodoni 72', Didot, 'Times New Roman', serif;
+  --font-body: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+@theme {
+  --color-background: #fffaf7;
+  --color-foreground: #352f2d;
+  --color-ivory: #fffaf7;
+  --color-blush-100: #fff2f5;
+  --color-blush-200: #f5dde5;
+  --color-blush-300: #e9c1ce;
+  --color-gold-200: #f5dfb2;
+  --color-gold-300: #ebca8c;
+  --color-gold-400: #deb56a;
+  --color-gold-500: #c7963d;
+  --color-gold-600: #b08132;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #fff8fa 0%, #fffaf7 45%, #fff7f2 100%);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-gold-400) 55%, white);
+  color: var(--color-foreground);
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
 }

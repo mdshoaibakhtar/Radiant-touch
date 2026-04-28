@@ -1,33 +1,20 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Radiant Touch",
-  description: "Radiant Touch – A modern, high-performance makeup artist landing page built with Next.js, featuring elegant UI/UX, responsive design, and optimized frontend architecture.",
-};
+  title: 'Radiant Touch | Luxury Makeup Artist',
+  description:
+    'Radiant Touch is a luxury makeup artist landing page showcasing bridal, party, and photoshoot beauty services with modern elegance.',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full bg-background font-sans text-foreground">{children}</body>
     </html>
-  );
+  )
 }
